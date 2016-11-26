@@ -10,6 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet var outputTV: NSTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,6 +40,7 @@ class ViewController: NSViewController {
         outputString = outputString.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Return the output
+        outputTV.string = "[output: \(outputString)]"
         print("[output: \(outputString)]")
     }
 }

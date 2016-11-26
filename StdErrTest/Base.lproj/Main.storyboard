@@ -686,9 +686,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y32-Ne-Yzh">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y32-Ne-Yzh">
                                 <rect key="frame" x="14" y="222" width="116" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NsN-SR-rmb"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Run Process" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bNc-kO-ynh">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -697,8 +699,45 @@
                                     <action selector="runProcessClicked:" target="XfG-lQ-9wD" id="eEr-Wb-3iX"/>
                                 </connections>
                             </button>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n2-WC-GTs">
+                                <rect key="frame" x="20" y="20" width="440" height="189"/>
+                                <clipView key="contentView" id="QAp-lV-Saa">
+                                    <rect key="frame" x="1" y="1" width="423" height="187"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="oKW-MJ-TNl">
+                                            <rect key="frame" x="0.0" y="0.0" width="423" height="187"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="423" height="187"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Wch-4Q-fsJ">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="S1R-bU-4Nc">
+                                    <rect key="frame" x="424" y="1" width="15" height="187"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0n2-WC-GTs" secondAttribute="bottom" constant="20" id="40S-bY-jQc"/>
+                            <constraint firstItem="0n2-WC-GTs" firstAttribute="top" secondItem="y32-Ne-Yzh" secondAttribute="bottom" constant="20" id="Uwm-2P-ChB"/>
+                            <constraint firstItem="y32-Ne-Yzh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Xtc-4d-uNQ"/>
+                            <constraint firstItem="y32-Ne-Yzh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="eFL-sB-Rtq"/>
+                            <constraint firstItem="0n2-WC-GTs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="tM9-ZX-XZt"/>
+                            <constraint firstAttribute="trailing" secondItem="0n2-WC-GTs" secondAttribute="trailing" constant="20" id="xJs-UK-XuP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outputTV" destination="oKW-MJ-TNl" id="YsE-BO-xgx"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
